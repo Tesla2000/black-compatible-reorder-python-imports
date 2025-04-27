@@ -242,6 +242,16 @@ For example:
 --replace-import six.moves=io:StringIO
 ```
 
+## Black compatibility
+
+Newer versions of black formatting conflict with the default settings when docstring is present at the beginning of the file
+To prevent reorder-python-import from changing said lines --retain-pre-import flag should be used.
+The flag is set to false by default to preserve compatibility.
+
+```bash
+--retain-pre-import true
+```
+
 ## Removing obsolete `__future__` imports
 
 The cli provides a few options to help "burn the bridges" with old python
